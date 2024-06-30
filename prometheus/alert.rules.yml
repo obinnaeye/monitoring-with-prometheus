@@ -1,0 +1,20 @@
+groups:
+  - name: example
+    rules:
+      - alert: HighNetworkLoad
+        expr: sum(rate(node_network_receive_bytes_total[1m])) > 1000000
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High Network Load"
+          description: "The network load is too high on {{ $labels.instance }}."
+
+      - alert: HighIOPS
+        expr: sum(rate(node_disk_io_time_seconds_total[1m])) > 0.8
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High IOPS"
+          description: "The IOPS is too high on {{ $labels.instance }}."

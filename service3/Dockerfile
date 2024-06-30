@@ -19,8 +19,8 @@ COPY . .
 # Build the Go app
 RUN go build -o /app
 
-# Make port 8080 available to the world outside this container
-EXPOSE 8080
+# Make port 8083 available to the world outside this container
+EXPOSE 8083
 
 # Run the app
 CMD ["/app"]
